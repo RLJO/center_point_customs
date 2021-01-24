@@ -33,6 +33,7 @@ class ProjectTask(models.Model):
             message = message.replace(data, "<strong>" + data.strip('*') + "</strong>")
         return message
 
+
     def send_message_on_whatsapp(self):
         Param = self.env['res.config.settings'].sudo().get_values()
         res_partner_id = self.env['res.partner'].search([('id', '=', self.user_id.partner_id.id)])
